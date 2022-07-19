@@ -17,7 +17,26 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    return Recipe.create({
+      title: "Sopa de Tomate",
+      level: "Easy Peasy",
+      ingredients: ["1kg of Tomatoes", "a pinch of salt", "peppermint"],
+      cuisine: "Mediterranean",
+      dishType: "soup",
+      image: "https://t1.uc.ltmcdn.com/es/posts/3/0/9/como_hacer_sopa_de_tomate_casera_25903_600_square.jpg",
+      duration: 20,
+      creator: "Idoia F.Forero",
+    })
+  })
+  .then((recipe) => {
+    console.log(recipe.title)
+    return Recipe.insertMany(data);
+  })
+  .then((recipe)=>{
+    
   })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
+
+
